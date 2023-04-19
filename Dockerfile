@@ -31,9 +31,10 @@ RUN mvn -B clean package
 FROM ${RUNTIME_IMAGE}
 ARG JAR_FILE=target/gigachads-backend-0.0.1-SNAPSHOT.jar
 COPY --from=build ${JAR_FILE} app.jar
-RUN echo "#!/bin/bash" >> entrypoint.sh
-RUN echo "sleep \$ENTRY_DELAY" >> entrypoint.sh
-RUN echo "java -jar app.jar --spring.profiles.active=dev" >> entrypoint.sh
-RUN chmod +x entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+#RUN echo "#!/bin/bash" >> entrypoint.sh
+#RUN echo "sleep \$ENTRY_DELAY" >> entrypoint.sh
+#RUN echo "java -jar app.jar --spring.profiles.active=dev" >> entrypoint.sh
+#RUN chmod +x entrypoint.sh
+#ENTRYPOINT ["/entrypoint.sh"]
+CMD ["java", "-jar", "app.jar"]
 #############################################################################################
