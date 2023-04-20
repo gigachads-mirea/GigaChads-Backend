@@ -43,6 +43,7 @@ public class Server {
     private int ping;
 
     private boolean antiCheat;
+    private boolean isModded;
 
     private float rating;
 
