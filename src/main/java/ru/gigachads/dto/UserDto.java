@@ -8,7 +8,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class RegisterRequestDto {
+public class UserDto {
 
     private String username;
 

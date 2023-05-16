@@ -1,35 +1,39 @@
 package ru.gigachads.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 /**
  * Описание класса
  */
 @Entity
-@Table(name = "permissions")
-@EqualsAndHashCode(of = {"name"})
-@Getter
-@Setter
+@Table(name="refresh_tokens")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Permission {
-
+public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Column(nullable = false, unique = true)
-    private String name;
+    private String token;
+
+    @Column(nullable = false, name="expiry_date")
+    private LocalDateTime expiryDate;
 }

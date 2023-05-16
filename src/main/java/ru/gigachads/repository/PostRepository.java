@@ -1,10 +1,10 @@
 package ru.gigachads.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.gigachads.entity.Review;
+import ru.gigachads.entity.Post;
 
 /**
  * Описание класса
  */
-public interface ReviewRepository extends JpaRepository<Review, Long> {
+public interface PostRepository extends JpaRepository<Post, Long> {
 }

@@ -12,11 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Описание класса
  */
 @Entity
+@Table(name = "servers")
 @Getter
 @Setter
 @Builder
@@ -43,6 +45,8 @@ public class Server {
     private int ping;
 
     private boolean antiCheat;
+
+    private boolean isModded;
 
     private float rating;
 

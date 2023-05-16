@@ -10,11 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Описание класса
  */
 @Entity
+@Table(name = "games")
 @Getter
 @Setter
 @Builder
@@ -26,9 +28,5 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-
-    private String description;
-
-    private String poster;
+    private String name;
 }
