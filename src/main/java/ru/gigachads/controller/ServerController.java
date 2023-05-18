@@ -36,7 +36,10 @@ public class ServerController implements ServerApi {
     public ResponseEntity<?> update(CreateServerDto createServerDto) { throw new RuntimeException("not implemented"); }
 
     @Override
-    public ResponseEntity<?> delete(Long id) { throw new RuntimeException("not implemented"); }
+    public ResponseEntity<Void> delete(Long id) {
+        val successful = serverService.deleteOne(id);
+        return successful ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
 
     @Override
     public ResponseEntity<List<CreateServerDto>> getAll() {
