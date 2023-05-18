@@ -52,6 +52,8 @@ public class ServerService {
             return Float.valueOf(value);
         if (typeName.equals(boolean.class.getTypeName()))
             return Boolean.valueOf(value);
+        if (typeName.equals(long.class.getTypeName()))
+            return Long.valueOf(value);
 
         return null;
     }
@@ -73,7 +75,10 @@ public class ServerService {
 
             entityManager.createQuery(query)
                 .getResultList()
-                .forEach(object -> resultList.add((Server) object));
+                .forEach(object -> {
+                    if (object != null)
+                        resultList.add((Server) object);
+                });
 
             break;
         }
