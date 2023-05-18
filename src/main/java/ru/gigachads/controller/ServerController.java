@@ -1,6 +1,7 @@
 package ru.gigachads.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.val;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gigachads.controller.api.ServerApi;
@@ -36,7 +37,8 @@ public class ServerController implements ServerApi {
 
     @Override
     public ResponseEntity<CreateServerDto> getOne(Long id) {
-        return null;
+        val server = serverService.getOne(id);
+        return server != null ? ResponseEntity.ok(serverToCreateServer(server)) : ResponseEntity.notFound().build();
     }
 
     @Override
