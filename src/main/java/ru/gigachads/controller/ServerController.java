@@ -43,7 +43,12 @@ public class ServerController implements ServerApi {
 
     @Override
     public ResponseEntity<List<CreateServerDto>> getAll() {
-        return ResponseEntity.ok(serverService.getAll().stream().map(ServerController::serverToCreateServer).toList());
+        return ResponseEntity.ok(
+            serverService.getAll()
+                .stream()
+                .map(ServerController::serverToCreateServer)
+                .toList()
+        );
     }
 
     @Override
@@ -56,7 +61,12 @@ public class ServerController implements ServerApi {
     public ResponseEntity<?> compare(Set<Long> ids) { throw new RuntimeException("not implemented"); }
 
     @Override
-    public ResponseEntity<?> filter(int filterFlags, Object vale) {
-        return null; // TODO
+    public ResponseEntity<List<CreateServerDto>> filter(String fieldName, String value) {
+        return ResponseEntity.ok(
+            serverService.getFiltered(fieldName, value)
+                .stream()
+                .map(ServerController::serverToCreateServer)
+                .toList()
+        );
     }
 }

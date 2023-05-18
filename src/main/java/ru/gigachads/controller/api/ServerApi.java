@@ -52,8 +52,8 @@ public interface ServerApi {
     );
 
     @GetMapping("/filter")
-    ResponseEntity<?> filter( // exact semantic unknown
-        @RequestParam(value = "flags") int filterFlags,
-        @RequestParam(value = "vale") Object vale
+    ResponseEntity<List<CreateServerDto>> filter(
+        @RequestParam(value = "field") String fieldName,
+        @RequestParam(value = "value") String value
     );
 }
