@@ -18,7 +18,15 @@ public class ServerController implements ServerApi {
     private final ServerService serverService;
 
     private static CreateServerDto serverToCreateServer(Server server) {
-        return new CreateServerDto(); // TODO
+        return new CreateServerDto(
+            server.getIpAddress(),
+            server.getCapacity(),
+            server.getRegion(),
+            server.getPing(),
+            server.isAntiCheat(),
+            server.getRating(),
+            server.getGame().getId()
+        );
     }
 
     @Override
