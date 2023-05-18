@@ -50,4 +50,10 @@ public interface ServerApi {
     ResponseEntity<?> compare(
         @RequestParam(value = "ids") Set<Long> ids
     );
+
+    @GetMapping("/filter")
+    ResponseEntity<?> filter( // exact semantic unknown
+        @RequestParam(value = "flags") int filterFlags,
+        @RequestParam(value = "vale") Object vale
+    );
 }

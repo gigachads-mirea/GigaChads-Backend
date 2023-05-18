@@ -54,4 +54,9 @@ public class ServerController implements ServerApi {
 
     @Override
     public ResponseEntity<?> compare(Set<Long> ids) { throw new RuntimeException("not implemented"); }
+
+    @Override
+    public ResponseEntity<?> filter(int filterFlags, Object vale) {
+        return null; // TODO
+    }
 }
