@@ -1,8 +1,11 @@
 package ru.gigachads.dto;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Описание класса
  */
+@AllArgsConstructor
 public class CreateServerDto {
 
     private String ipAddress;
