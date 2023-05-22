@@ -36,11 +36,9 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Setter
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "roles_permissions",
         joinColumns = {@JoinColumn(name = "role_id")},

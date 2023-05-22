@@ -3,19 +3,20 @@ package ru.gigachads.dto;
 /**
  * Описание класса
  */
-public class CreateServerDto {
+public record CreateServerDto (
+    String ipAddress,
 
-    private String ipAddress;
+    int capacity,
 
-    private int capacity;
+    Long regionId,
 
-    private String region;
+    int ping,
 
-    private int ping;
+    boolean antiCheat,
 
-    private boolean antiCheat;
+    boolean isModded,
 
-    private float rating;
+    Long gameId
+) {
 
-    private Long gameId;
 }

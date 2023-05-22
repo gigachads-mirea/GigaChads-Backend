@@ -1,7 +1,6 @@
 package ru.gigachads.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.stereotype.Component;
 import ru.gigachads.dto.UserDto;
