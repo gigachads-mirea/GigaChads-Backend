@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * Описание класса
  */
-@RequestMapping("/ap/v1/comments")
+@RequestMapping("/api/v1/comments")
 public interface CommentApi {
 
     @PostMapping("")
