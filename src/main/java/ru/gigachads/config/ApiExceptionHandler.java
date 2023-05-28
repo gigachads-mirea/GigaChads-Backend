@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import ru.gigachads.exception.ApiException;
+import ru.gigachads.exception.TokenRefreshException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
@@ -42,6 +43,14 @@ public class ApiExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleJsonException(Exception exception, Locale locale,
                                                                    HttpServletRequest request) {
         ApiException wrapper = new ApiException(HttpStatus.BAD_REQUEST, "Bad request", extractQueryPath(request));
+        log.error(exception.getMessage(), exception);
+        return wrapper.toLocalResponseEntity(messageSource, locale);
+    }
+
+    @ExceptionHandler(TokenRefreshException.class)
+    public ResponseEntity<Map<String, Object>> handleForbiddenException(
+        EmptyResultDataAccessException exception, Locale locale, HttpServletRequest request) {
+        ApiException wrapper = new ApiException(HttpStatus.FORBIDDEN, "This operation is forbidden", extractQueryPath(request));
         log.error(exception.getMessage(), exception);
         return wrapper.toLocalResponseEntity(messageSource, locale);
     }

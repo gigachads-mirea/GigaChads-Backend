@@ -25,7 +25,6 @@ public class CommentService {
             .post(post)
             .author(user)
             .text(dto.text())
-            .likes(0)
             .writtenAt(LocalDateTime.now())
             .build();
         return commentRepository.save(comment);

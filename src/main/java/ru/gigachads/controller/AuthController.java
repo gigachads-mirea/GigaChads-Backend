@@ -63,8 +63,6 @@ public class AuthController implements AuthApi {
     public ResponseEntity<TokenRefreshResponseDto> refreshToken(@Valid @RequestBody TokenRefreshDto request) {
         String requestRefreshToken = request.getRefreshToken();
 
-        System.out.println(requestRefreshToken);
-
         return refreshTokenService.findByToken(requestRefreshToken)
             .map(refreshTokenService::verifyExpiration)
             .map(RefreshToken::getUser)

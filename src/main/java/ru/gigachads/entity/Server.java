@@ -43,6 +43,10 @@ public class Server {
     @Column(name = "ip_address")
     private String ipAddress;
 
+    private String title;
+
+    private String description;
+
     private int capacity;
 
     private int currentOnline;

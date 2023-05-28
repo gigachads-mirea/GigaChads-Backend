@@ -6,6 +6,10 @@ package ru.gigachads.dto;
 public record CreateServerDto (
     String ipAddress,
 
+    String title,
+
+    String description,
+
     int capacity,
 
     Long regionId,

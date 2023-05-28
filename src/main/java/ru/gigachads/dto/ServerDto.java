@@ -16,6 +16,10 @@ public class ServerDto {
 
     private String ipAddress;
 
+    private String title;
+
+    private String description;
+
     private int capacity;
 
     private int currentOnline;

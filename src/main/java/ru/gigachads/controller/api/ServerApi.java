@@ -50,7 +50,7 @@ public interface ServerApi {
         @RequestParam(value = "ids") Set<Long> ids
     );
 
-    @PostMapping("/{id}/favorites")
+    @PostMapping("/favorites/{id}")
     ResponseEntity<?> addFavorite(
         @PathVariable Long id,
         HttpServletRequest request
