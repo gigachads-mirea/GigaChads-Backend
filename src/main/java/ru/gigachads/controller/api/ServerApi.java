@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.gigachads.dto.CreateServerDto;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Set;
 
@@ -22,7 +23,8 @@ public interface ServerApi {
 
     @PostMapping("")
     ResponseEntity<?> create(
-        @RequestBody @Valid CreateServerDto createServerDto
+        @RequestBody @Valid CreateServerDto createServerDto,
+        HttpServletRequest request
     );
 
     @PatchMapping("")
@@ -47,4 +49,11 @@ public interface ServerApi {
     ResponseEntity<?> compare(
         @RequestParam(value = "ids") Set<Long> ids
     );
+
+    @PostMapping("/favorites/{id}")
+    ResponseEntity<?> addFavorite(
+        @PathVariable Long id,
+        HttpServletRequest request
+    );
+
 }

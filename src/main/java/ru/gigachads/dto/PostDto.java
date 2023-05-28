@@ -3,7 +3,7 @@ package ru.gigachads.dto;
 /**
  * Описание класса
  */
-public class ReviewDto {
+public class PostDto {
 
     private String text;
 

@@ -45,8 +45,6 @@ public class Post {
 
     private String content;
 
-    private int likes;
-
     @Column(name = "written_at")
     private LocalDateTime writtenAt;
 
